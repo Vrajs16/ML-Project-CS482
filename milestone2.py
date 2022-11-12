@@ -27,26 +27,30 @@ def get_images(categories):
     for category in categories:
         START = 0
         print("Category:", category)
-        for i in range(3):
+        for i in range(15):
             category_url = f"{main_url}{START}&num=10&q={category}"
             response = requests.get(category_url)
-            if response.status_code == 200:
-                data = response.json()
-                items = data["items"]
-                urls = []
-                for item in items:
-                    urls.append(item["link"])
+            try:
+                if response.status_code == 200:
+                    data = response.json()
+                    items = data["items"]
+                    urls = []
+                    for item in items:
+                        urls.append(item["link"])
 
-                for i, url in enumerate(urls):
-                    if "www.homedepot.com" not in url:
-                        print(f"\t{i} - URL:", url)
-                        response = requests.get(url)
-                        filename = url.split("/")[-1]
-                        with open(f"{category}/{filename}", "wb") as f:
-                            f.write(response.content)
-            else:
-                print(response.text)
-            START += 10
+                    for i, url in enumerate(urls):
+                        if "www.homedepot.com" not in url:
+                            print(f"\t{i} - URL:", url)
+                            response = requests.get(url)
+                            filename = url.split("/")[-1]
+                            with open(f"{category}/{filename}", "wb") as f:
+                                f.write(response.content)
+                else:
+                    print(response.text)
+                START += 10
+            except:
+                print("Probably reached the end of the search results")
+                break
 
 
 def main():
@@ -67,7 +71,16 @@ def main():
         "Bathroom Fans"
     """
     product_categories: list[str] = [
-        "Vent Fans"
+        "Bathroom Vanities",
+        "Bath Faucets",
+        "Bathtubs",
+        "Showers",
+        "Toilets",
+        "Bathroom Storage",
+        "Bathroom Sinks",
+        "Bath Accessories",
+        "Bathroom Mirrors",
+        "Bathroom Fans",
     ]
 
     # Create a folder for each product category if it does not exist

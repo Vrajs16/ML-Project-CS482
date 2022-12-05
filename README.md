@@ -28,3 +28,9 @@
   ```shell
   docker-compose down
   ```
+
+## Downloading model
+run `git lfs pull` to download the model and videos
+
+## Final Semantic Segmentation Video
+<iframe src="https://youtu.be/KvWbd59SazU"></iframe>

@@ -33,4 +33,5 @@
 run `git lfs pull` to download the model and videos
 
 ## Final Semantic Segmentation Video
-<iframe src="https://youtu.be/KvWbd59SazU"></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=KvWbd59SazU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
